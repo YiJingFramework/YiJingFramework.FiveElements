@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiJingFramework.FiveElement
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiJingFramework.FiveElementsTests", "YiJingFramework.FiveElementsTests\YiJingFramework.FiveElementsTests.csproj", "{A0F529A4-B68D-4136-8B86-5F324521B47C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{B7FA84CA-D150-4DBE-9FB5-3E21DB5D2738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FA84CA-D150-4DBE-9FB5-3E21DB5D2738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FA84CA-D150-4DBE-9FB5-3E21DB5D2738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FA84CA-D150-4DBE-9FB5-3E21DB5D2738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FA84CA-D150-4DBE-9FB5-3E21DB5D2738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
