@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <Authors>yueyinqiu5990</Authors>
+    <Company>YiJingFramework</Company>
+    <Description>YiJingFramework is a C# library (group) about Yi Jing.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright © 2021 yueyinqiu5990. All rights reserved.</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/YiJingFramework/YiJingFramework.FiveElements/wiki</PackageProjectUrl>
+    <PackageIcon>Taichi.png</PackageIcon>
+    <RepositoryUrl>https://github.com/YiJingFramework/YiJingFramework.FiveElements.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>zhouyi;i-ching;yijing;yijingframework</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>obj\Release\net5.0\YiJingFramework.FiveElements.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Taichi.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

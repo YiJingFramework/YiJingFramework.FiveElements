@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiJingFramework.FiveElements", "YiJingFramework.FiveElements\YiJingFramework.FiveElements.csproj", "{16346BF7-2D0F-4AAA-AE9A-E6363DE960FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiJingFramework.FiveElementsTests", "YiJingFramework.FiveElementsTests\YiJingFramework.FiveElementsTests.csproj", "{A0F529A4-B68D-4136-8B86-5F324521B47C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16346BF7-2D0F-4AAA-AE9A-E6363DE960FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16346BF7-2D0F-4AAA-AE9A-E6363DE960FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16346BF7-2D0F-4AAA-AE9A-E6363DE960FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16346BF7-2D0F-4AAA-AE9A-E6363DE960FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F529A4-B68D-4136-8B86-5F324521B47C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7FF6F60-F090-42AB-A074-C07F393DE86D}
+	EndGlobalSection
+EndGlobal
