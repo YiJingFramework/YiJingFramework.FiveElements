@@ -174,38 +174,6 @@ namespace YiJingFramework.FiveElements
         /// <returns></returns>
         public static bool operator !=(FiveElement left, FiveElement right)
             => left.int32Value != right.int32Value;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator <(FiveElement left, FiveElement right)
-            => left.int32Value < right.int32Value;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator <=(FiveElement left, FiveElement right)
-            => left.int32Value <= right.int32Value;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator >(FiveElement left, FiveElement right)
-            => left.int32Value > right.int32Value;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator >=(FiveElement left, FiveElement right)
-            => left.int32Value >= right.int32Value;
         #endregion
 
         #region generating and overcoming

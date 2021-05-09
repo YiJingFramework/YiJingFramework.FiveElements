@@ -82,14 +82,6 @@ namespace YiJingFramework.FiveElements.Tests
                     Assert.AreEqual(true, secF == firF);
                     Assert.AreEqual(false, firF != secF);
                     Assert.AreEqual(false, secF != firF);
-                    Assert.AreEqual(false, firF < secF);
-                    Assert.AreEqual(false, secF < firF);
-                    Assert.AreEqual(false, firF > secF);
-                    Assert.AreEqual(false, secF > firF);
-                    Assert.AreEqual(true, firF <= secF);
-                    Assert.AreEqual(true, secF <= firF);
-                    Assert.AreEqual(true, firF >= secF);
-                    Assert.AreEqual(true, secF >= firF);
                 }
 
                 else if (fir < sec)
@@ -105,14 +97,6 @@ namespace YiJingFramework.FiveElements.Tests
                     Assert.AreEqual(false, secF == firF);
                     Assert.AreEqual(true, firF != secF);
                     Assert.AreEqual(true, secF != firF);
-                    Assert.AreEqual(true, firF < secF);
-                    Assert.AreEqual(false, secF < firF);
-                    Assert.AreEqual(false, firF > secF);
-                    Assert.AreEqual(true, secF > firF);
-                    Assert.AreEqual(true, firF <= secF);
-                    Assert.AreEqual(false, secF <= firF);
-                    Assert.AreEqual(false, firF >= secF);
-                    Assert.AreEqual(true, secF >= firF);
                 }
 
                 else // fir > sec
@@ -128,14 +112,6 @@ namespace YiJingFramework.FiveElements.Tests
                     Assert.AreEqual(false, secF == firF);
                     Assert.AreEqual(true, firF != secF);
                     Assert.AreEqual(true, secF != firF);
-                    Assert.AreEqual(false, firF < secF);
-                    Assert.AreEqual(true, secF < firF);
-                    Assert.AreEqual(true, firF > secF);
-                    Assert.AreEqual(false, secF > firF);
-                    Assert.AreEqual(false, firF <= secF);
-                    Assert.AreEqual(true, secF <= firF);
-                    Assert.AreEqual(true, firF >= secF);
-                    Assert.AreEqual(false, secF >= firF);
                 }
                 Assert.AreEqual(false, firF.Equals(null));
                 Assert.AreEqual(false, secF.Equals(new object()));
