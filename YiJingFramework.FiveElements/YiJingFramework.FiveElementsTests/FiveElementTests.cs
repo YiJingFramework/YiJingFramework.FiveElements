@@ -25,6 +25,13 @@ namespace YiJingFramework.FiveElements.Tests
             Assert.AreEqual("Earth", FiveElement.Earth.ToString());
             Assert.AreEqual("Metal", FiveElement.Metal.ToString());
             Assert.AreEqual("Water", FiveElement.Water.ToString());
+            Assert.AreEqual("Wood", FiveElement.Wood.ToString("G"));
+            Assert.AreEqual("Fire", FiveElement.Fire.ToString(null));
+            Assert.AreEqual("木", FiveElement.Wood.ToString("C"));
+            Assert.AreEqual("火", FiveElement.Fire.ToString("C"));
+            Assert.AreEqual("土", FiveElement.Earth.ToString("C"));
+            Assert.AreEqual("金", FiveElement.Metal.ToString("C"));
+            Assert.AreEqual("水", FiveElement.Water.ToString("C"));
 
             Assert.IsTrue(FiveElement.TryParse("Wood", out FiveElement r));
             Assert.AreEqual(FiveElement.Wood, r);

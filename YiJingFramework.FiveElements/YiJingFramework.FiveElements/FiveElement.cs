@@ -8,7 +8,7 @@ namespace YiJingFramework.FiveElements
     /// 五行。
     /// An element of the five elements.
     /// </summary>
-    public struct FiveElement : IComparable<FiveElement>, IEquatable<FiveElement>
+    public struct FiveElement : IComparable<FiveElement>, IEquatable<FiveElement>, IFormattable
     {
         private readonly int int32Value;
         private FiveElement(int int32ValueNotSmallerThanZero)
@@ -58,6 +58,45 @@ namespace YiJingFramework.FiveElements
                 2 => "Earth",
                 3 => "Metal",
                 _ => "Water" // 4 => "Water"
+            };
+        }
+
+        /// <summary>
+        /// 按照指定格式转换为字符串。
+        /// Convert to a string with the given format.
+        /// </summary>
+        /// <param name="format">
+        /// 要使用的格式。
+        /// <c>"G"</c> 表示英文； <c>"C"</c> 表示中文。
+        /// <c>"G"</c> represents English; and <c>"C"</c> represents Chinese.
+        /// </param>
+        /// <param name="formatProvider">
+        /// 不会使用此参数。
+        /// This parameter will won't be used.
+        /// </param>
+        /// <returns>
+        /// 结果。
+        /// The result.
+        /// </returns>
+        /// <exception cref="FormatException">
+        /// 给出的格式化字符串不受支持。
+        /// The given format is not supported.
+        /// </exception>
+        public string ToString(string? format, IFormatProvider? formatProvider = null)
+        {
+            if (string.IsNullOrEmpty(format))
+                format = "G";
+
+            return format.ToUpperInvariant() switch {
+                "G" => this.ToString(),
+                "C" => this.int32Value switch {
+                    0 => "木",
+                    1 => "火",
+                    2 => "土",
+                    3 => "金",
+                    _ => "水" // 4 => "水"
+                },
+                _ => throw new FormatException($"The format string \"{format}\" is not supported.")
             };
         }
 
