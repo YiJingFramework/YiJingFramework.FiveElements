@@ -123,18 +123,23 @@ namespace YiJingFramework.FiveElements
             switch (s?.Trim()?.ToLower())
             {
                 case "wood":
+                case "木":
                     result = Wood;
                     return true;
                 case "fire":
+                case "火":
                     result = Fire;
                     return true;
                 case "earth":
+                case "土":
                     result = Earth;
                     return true;
                 case "metal":
+                case "金":
                     result = Metal;
                     return true;
                 case "water":
+                case "水":
                     result = Water;
                     return true;
                 default:
