@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <Authors>yueyinqiu5990</Authors>
     <Company>YiJingFramework</Company>
-    <Description>YiJingFramework.FiveElements provides the basic support of the five elements.</Description>
+    <Description>This package provides the basic support of the five elements.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Copyright>Copyright © 2021 yueyinqiu5990. All rights reserved.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/YiJingFramework/YiJingFramework.FiveElements/wiki</PackageProjectUrl>
@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/YiJingFramework/YiJingFramework.FiveElements.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>zhouyi;i-ching;yijing;yijingframework</PackageTags>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
