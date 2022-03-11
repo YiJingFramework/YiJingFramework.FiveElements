@@ -251,7 +251,8 @@ namespace YiJingFramework.FiveElements
         /// </returns>
         public FiveElement GetElement(FiveElementsRelationship relation)
         {
-            return new FiveElement(this.int32Value + (int)relation);
+            var relationInt = ((int)relation % 5 + 5) % 5;
+            return new FiveElement(this.int32Value + relationInt);
         }
         #endregion
     }
