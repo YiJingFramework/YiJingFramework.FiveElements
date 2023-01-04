@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
+using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
+using YiJingFramework.Serialization;
 
 namespace YiJingFramework.FiveElements
 {
@@ -8,7 +12,13 @@ namespace YiJingFramework.FiveElements
     /// 五行。
     /// An element of the five elements.
     /// </summary>
-    public struct FiveElement : IComparable<FiveElement>, IEquatable<FiveElement>, IFormattable
+    [JsonConverter(typeof(JsonConverterOfStringConvertibleForJson<FiveElement>))]
+    public readonly struct FiveElement :
+        IComparable<FiveElement>, IEquatable<FiveElement>, IFormattable,
+        IParsable<FiveElement>, IEqualityOperators<FiveElement, FiveElement, bool>,
+        IStringConvertibleForJson<FiveElement>,
+        IAdditionOperators<FiveElement, int, FiveElement>, 
+        ISubtractionOperators<FiveElement, int, FiveElement>
     {
         private readonly int int32Value;
         private FiveElement(int int32ValueNotSmallerThanZero)
@@ -108,6 +118,35 @@ namespace YiJingFramework.FiveElements
         /// 字符串。
         /// The string.
         /// </param>
+        /// <returns>
+        /// 结果。
+        /// The result.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="s"/> 是 <c>null</c> 。
+        /// <paramref name="s"/> is <c>null</c>.
+        /// </exception>
+        /// <exception cref="FormatException">
+        /// 传入字符串的格式不受支持。
+        /// The input string was not in the supported format.
+        /// </exception>
+        public static FiveElement Parse(string s)
+        {
+            ArgumentNullException.ThrowIfNull(s);
+
+            if (TryParse(s, out var result))
+                return result;
+            throw new FormatException($"Cannot parse \"{s}\" as {nameof(FiveElement)}.");
+        }
+
+        /// <summary>
+        /// 从字符串转换。
+        /// Convert from a string.
+        /// </summary>
+        /// <param name="s">
+        /// 字符串。
+        /// The string.
+        /// </param>
         /// <param name="result">
         /// 结果。
         /// The result.
@@ -120,7 +159,7 @@ namespace YiJingFramework.FiveElements
             [NotNullWhen(true)] string? s,
             [MaybeNullWhen(false)] out FiveElement result)
         {
-            switch (s?.Trim()?.ToLower())
+            switch (s?.Trim()?.ToLowerInvariant())
             {
                 case "wood":
                 case "木":
@@ -148,6 +187,20 @@ namespace YiJingFramework.FiveElements
             }
         }
 
+        static FiveElement IParsable<FiveElement>.Parse(string s, IFormatProvider? provider)
+        {
+            return Parse(s);
+        }
+
+        static bool IParsable<FiveElement>.TryParse(
+            [NotNullWhen(true)] string? s,
+            IFormatProvider? provider,
+            [MaybeNullWhen(false)] out FiveElement result)
+        {
+            return TryParse(s, out result);
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -173,6 +226,7 @@ namespace YiJingFramework.FiveElements
         {
             return this.int32Value.CompareTo(other.int32Value);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -222,6 +276,30 @@ namespace YiJingFramework.FiveElements
 
         #region generating and overcoming
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static FiveElement operator +(FiveElement left, int right)
+        {
+            right = right % 5 + 5;
+            return new FiveElement(left.int32Value + right);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static FiveElement operator -(FiveElement left, int right)
+        {
+            right = -(right % 5) + 5;
+            return new FiveElement(left.int32Value + right);
+        }
+
+        /// <summary>
         /// 获取与另一五行之间的关系。
         /// Get the relationship with another element.
         /// </summary>
@@ -251,8 +329,19 @@ namespace YiJingFramework.FiveElements
         /// </returns>
         public FiveElement GetElement(FiveElementsRelationship relation)
         {
-            var relationInt = ((int)relation % 5 + 5) % 5;
-            return new FiveElement(this.int32Value + relationInt);
+            return this + (int)relation;
+        }
+        #endregion
+
+        #region serializing
+        static bool IStringConvertibleForJson<FiveElement>.FromStringForJson(string s, out FiveElement result)
+        {
+            return TryParse(s, out result);
+        }
+
+        string IStringConvertibleForJson<FiveElement>.ToStringForJson()
+        {
+            return this.ToString();
         }
         #endregion
     }

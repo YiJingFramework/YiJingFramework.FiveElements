@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace YiJingFramework.FiveElements.Tests
 {
@@ -49,6 +50,21 @@ namespace YiJingFramework.FiveElements.Tests
             Assert.AreEqual(FiveElement.Water, r);
             Assert.IsFalse(FiveElement.TryParse("false", out _));
             Assert.IsFalse(FiveElement.TryParse(null, out _));
+
+            T Parse<T>(string s) where T : IParsable<T>
+            {
+                return T.Parse(s, null);
+            }
+
+            bool TryParse<T>(string s, out T result) where T : IParsable<T>
+            {
+                return T.TryParse(s, null, out result);
+            }
+
+            Assert.AreEqual(FiveElement.Wood, FiveElement.Parse("Wood"));
+            Assert.AreEqual(FiveElement.Wood, Parse<FiveElement>("Wood"));
+            _ = TryParse<FiveElement>("Wood", out var p);
+            Assert.AreEqual(FiveElement.Wood, p);
 
             var elements = new FiveElement[] {
                 FiveElement.Wood,
@@ -174,6 +190,34 @@ namespace YiJingFramework.FiveElements.Tests
                     woodP.GetElement(FiveElementsRelationship.OvercomingMe));
                 Assert.AreEqual(waterP,
                     woodP.GetElement(FiveElementsRelationship.GeneratingMe));
+
+                Assert.AreEqual(woodP, woodP + 0);
+                Assert.AreEqual(fireP, woodP + 1);
+                Assert.AreEqual(earthP, woodP + 2);
+                Assert.AreEqual(metalP, woodP + 3);
+                Assert.AreEqual(waterP, woodP + 4);
+                Assert.AreEqual(woodP, woodP + 5);
+                Assert.AreEqual(fireP, woodP + 6);
+
+                Assert.AreEqual(woodP, woodP - 5);
+                Assert.AreEqual(fireP, woodP - 4);
+                Assert.AreEqual(earthP, woodP - 3);
+                Assert.AreEqual(metalP, woodP - 2);
+                Assert.AreEqual(waterP, woodP - 1);
+                Assert.AreEqual(woodP, woodP - 0);
+                Assert.AreEqual(fireP, woodP - (-1));
+            }
+        }
+
+        [TestMethod()]
+        public void SerializationTest()
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                var element = (FiveElement)i;
+                var s = JsonSerializer.Serialize(element);
+                var d = JsonSerializer.Deserialize<FiveElement>(s);
+                Assert.AreEqual(element, d);
             }
         }
     }
